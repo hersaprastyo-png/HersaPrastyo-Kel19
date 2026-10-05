@@ -1,0 +1,70 @@
+print("========== KELOMPOK 19 ===========")
+print("ZAHWA NUR AZZAHRA (21120126120038)")
+print("Ardhianti Maheswari (21120126130042)")
+print("Mukhlas Muhammad Yusan (21120126140147)")
+print("Hersa Prasetyo (21120126140177)")
+print("="*35)
+class Pegawai:
+    def __init__(self, nama, jabatan, gapok):
+        self.nama = nama
+        self.jabatan = jabatan
+        self.gapok = gapok
+
+    def hitung_gatot(self, bonus):
+        total = self.gapok + bonus
+        return total
+
+    def tampilan_info(self):
+        print(f"Nama Pegawai : {self.nama}")
+        print(f"Jabatan : {self.jabatan}")
+        print(f"Gaji Pokok : Rp. {self.gapok}")
+        print("-"*30)
+
+def hitung_tunjangan():
+    tunjangan_harian = 30000
+    tot_hari_kerja = 26
+    return tunjangan_harian * tot_hari_kerja
+
+def menu(nama_perusahaan):
+    print(f"SELAMAT DATANG DI SISTEM INFORMASI PEGAWAI {nama_perusahaan.upper()}")
+    print("1. Lihat Semua Pegawai & Hitung Gaji")
+    print("2. Tambah Pegawai Baru")
+    print("3. Keluar")
+
+daf_pegawai = [
+    Pegawai ("Zahwa", "Direktur Utama", 12000000),
+    Pegawai ("Ardhianti", "Direktur Keuangan", 10000000),
+    Pegawai ("Mukhlas", "Manager Operasional", 8000000),
+    Pegawai ("Hersa", "Karyawan", 5000000)
+]
+while True:
+    menu("PT. BUKTIKAN KITA BISA")
+    pilihan = input("Pilih Menu (1/2/3): ")
+    if pilihan == "1":
+        print("\n==== Daftar Pegawai ====")
+        if not daf_pegawai:
+            print("Belum ada data pegawai.")
+        else:
+            for pegawai in daf_pegawai:
+                pegawai.tampilan_info()
+                tunjangan = hitung_tunjangan()
+                gaji_total = pegawai.hitung_gatot(1000000)+ tunjangan
+                print (f"Tunjangan : Rp. {tunjangan}")
+                print (f"Total Gaji + Bonus : Rp. {gaji_total}")
+                print("="*30)
+    elif pilihan == "2":
+        print("\n==== Tambah Pegawai Baru ====")
+        nama = input("Masukkan Nama Pegawai : ")
+        jabatan = input("Masukkan Jabatan : ")
+        gaji = int(input("Masukkan Gaji Pokok : Rp."))
+
+        pegawai_baru = Pegawai(nama, jabatan, gaji)
+        daf_pegawai.append(pegawai_baru)
+        print("="*30)
+        print("Pegawai berhasil ditambahkan.")
+        print("="*30)
+    elif pilihan == "3":
+        print("Terima kasih! Program Selesai.")
+        break
+    else : 
+        print("Pilihan tidak valid! Silahkan coba lagi.")
