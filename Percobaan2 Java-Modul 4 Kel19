@@ -1,0 +1,29 @@
+public class intro {
+    // Method sapa
+    public void sapa() {
+        System.out.println("Haloo Worldd!!");
+    }
+    // Method perkenalan
+    public String perkenalan(String nama, String kota, String hobi) {
+        return "Namaku " + nama + ", Aku dari " + kota
+                + " dan hobiku adalah " + hobi;
+    }
+    // Method umur
+    public void umur(int umur) {
+        System.out.println("Aku berumur " + umur + " tahun");
+    }
+    // Main Function
+    public static void main(String[] args) {
+        System.out.println();
+        System.out.println("-----------------");
+
+        intro objek = new intro();
+
+        objek.sapa();
+
+        System.out.println(
+                objek.perkenalan("Hersa", "Bojonegoro", "Jogging ")
+        );
+        objek.umur(20);
+    }
+}
